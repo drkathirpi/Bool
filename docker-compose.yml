@@ -1,0 +1,16 @@
+services:
+  booksplit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /opt/booksplit/data:/data
+    environment:
+      - DATA_DIR=/data
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - NIM_MODEL=${NIM_MODEL:-meta/llama-3.3-70b-instruct}
+      - NIM_BASE_URL=${NIM_BASE_URL:-https://integrate.api.nvidia.com/v1}
+      # - APP_PASSWORD=${APP_PASSWORD}
+    expose:
+      - "8000"
+    restart: unless-stopped
