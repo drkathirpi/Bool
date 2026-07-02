@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-pymupdf
-python-multipart
-pypdf
-httpx
